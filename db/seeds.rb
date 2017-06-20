@@ -1,5 +1,5 @@
 10.times do |blog|
-  Blogs.create!(
+  Blog.create!(
     title:"My Blog Posts #{blog}",
     body:"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, 
     eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia
@@ -14,8 +14,8 @@ end
 puts "10 blogs posts created"
 
 5.times do |skill|
-  skills.create!(
-    title "Rails #{skill}",
+  Skill.create!(
+    title: "Rails #{skill}",
     percent_utilized: 15
     )
 end
