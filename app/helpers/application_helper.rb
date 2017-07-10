@@ -18,4 +18,7 @@ module ApplicationHelper
     content_tag(:p,"Thanks for visiting me from #{session[:source]} and you are on the #{layout_name} layout")
     end
   end
+  def copyright_generator
+    AniTino::Renderer.copyright 'Anibal Tinoco', 'All rights reserved'
+  end
 end

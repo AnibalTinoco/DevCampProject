@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/AnibalTinoco/ani_tino
+  revision: bee9772d6c4d8d263835739e560903345cc4b587
+  specs:
+    ani_tino (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -183,6 +189,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ani_tino!
   bootstrap (~> 4.0.0.alpha6)
   byebug
   coffee-rails (~> 4.2)
