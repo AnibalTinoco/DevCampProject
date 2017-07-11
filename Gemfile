@@ -56,4 +56,4 @@ gem 'friendly_id', '~>5.1.0'
 gem 'devise', '~> 4.2'
 gem 'bootstrap', '~> 4.0.0.alpha6'
 
-gem 'ani_tino', git: 'https://github.com/AnibalTinoco/ani_tino'
+gem 'ani_tino', '~> 0.1.0'
