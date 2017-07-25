@@ -1,12 +1,20 @@
 class PortfoliosController < ApplicationController
-  before_action :set_portfolio_items, only: [:edit, :show, :update, :destroy,]
+  before_action :set_portfolio_item, only: [:edit, :show, :update, :destroy]
   layout 'portfolio'
-  access all: [:show, :index, :angular], user: {except: [:destroy, :new, :create, :update, :edit ]}, admin: :all
+  access all: [:show, :index, :angular], user: {except: [:destroy, :new, :create, :update, :edit, :sort]}, site_admin: :all
   
   def index
-    @portfolio_items = Portfolio.all
+    @portfolio_items = Portfolio.by_position
   end
-
+  
+  def sort
+    params[:order].each do |key, value|
+      Portfolio.find(value[:id]).update(position: value[:position])
+    end
+    
+    render nothing: true
+  end
+  
   def angular
     @angular_portfolio_items = Portfolio.angular
   end
@@ -29,7 +37,6 @@ class PortfoliosController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
@@ -43,13 +50,9 @@ class PortfoliosController < ApplicationController
   end
 
   def show
-    
   end
 
   def destroy
-    # Perform the lookup
-   
-
     # Destroy/delete the record
     @portfolio_item.destroy
 
@@ -68,9 +71,8 @@ class PortfoliosController < ApplicationController
                                       technologies_attributes: [:name]
                                      )
   end
-  
-  def set_portfolio_items
+
+  def set_portfolio_item
     @portfolio_item = Portfolio.find(params[:id])
   end
-
 end
