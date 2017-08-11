@@ -1,16 +1,81 @@
-<h1>About Me</h1>
-
-<hr>
-
-<div class="row">
-  <div class="col-md-4">
+<div class="app-card-container">
+  <div class="card">
+    <h1>About Me</h1>
     
-    <%= image_tag "beareddragon.jpg", width: 300, alt: "profile image" %>
+    <hr>
+    
+    <div class="row">
+      <div class="col-md-4">
+        <%= image_tag "beareddragon.jpg", width: 300, alt: "profile image", class: 'profile-img' %>
+        <div class="skills">
+          <% @skills.each do |skill| %>
+            <div class="skill">
+              <h4><%= skill.title %></h4>
+              <div class="progress">
+                <div
+                  class="progress-bar progress-bar-striped bg-warning"
+                  role="progressbar"
+                  aria-valuenow="<%= skill.percent_utilized %>"
+                  aria-valuemax="100"
+                  style="width: <%= skill.percent_utilized %>%"
+                ></div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      
+      <div class="col-md-8">
+        <p>Private information</p>
+        
+        <p>
+          <button
+            class="btn btn-primary"
+            type="button"
+            data-toggle="collapse"
+            data-target="#jobHistory"
+            aria-expanded="false"
+            aria-controler="jobHistory"
+          >
+            Job History
+          </button>
+          
+          <button
+            class="btn btn-primary"
+            type="button"
+            data-toggle="collapse"
+            data-target="#Educations"
+            aria-expanded="false"
+            aria-controler="Educations"
+          >
+            Education
+          </button>
+        </p>
+        
+        <p>
+          <div class="collapse" id="jobHistory"> 
+          
+           <div class="card card-block">
+             Job 1
+           </div>
+           
+           <div class="card card-block">
+             Job 2
+           </div>
+          </div>
+           
+          <div class="collapse" id="Educations"> 
+          
+           <div class="card card-block">
+             Education
+           </div>
+           </div>
+          </div>
+        </p>
+      </div>  
+    </div>
   </div>
-  
-  <div class="col-md-8">
-    <p>Private information</p>
-  </div>  
 </div>
 
 
